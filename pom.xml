@@ -15,6 +15,7 @@
         <module>logging-mvc</module>
         <module>logging-api</module>
         <module>logging-integration-tests</module>
+        <module>logging-boot-app</module>
     </modules>
 
     <name>Query Logging Project</name>
@@ -25,6 +26,26 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!--Spring versions-->
+        <org.springframework.version>4.3.7.RELEASE</org.springframework.version>
+        <spring.security.version>4.2.2.RELEASE</spring.security.version>
+        <spring.boot.version>1.5.2.RELEASE</spring.boot.version>
+
+        <!--Hibernate versions-->
+        <!--<hibernate.version>5.3.3.Final</hibernate.version>-->
+        <hibernate-core.version>5.2.9.Final</hibernate-core.version>
+
+        <!--Logging stuff versions-->
+        <org.slf4j.version>1.7.25</org.slf4j.version>
+        <ch.qos.logback.version>1.2.2</ch.qos.logback.version>
+
+        <!--Other libs versions-->
+        <junit.version>4.12</junit.version>
+        <dozer.version>5.5.1</dozer.version>
+        <mockito.version>1.10.19</mockito.version>
+        <hamcrest.version>1.3</hamcrest.version>
+        <hamcrest.optional.version>1.0</hamcrest.optional.version>
     </properties>
 
     <parent>
@@ -35,6 +56,18 @@
     </parent>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>${spring.boot.version}</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
@@ -53,6 +86,27 @@
             <artifactId>spring-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-core.version}</version>
+
+            <exclusions>
+                <exclusion>
+                    <artifactId>jboss-logging</artifactId>
+                    <groupId>org.jboss.logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -71,27 +125,27 @@
         </dependency>
 
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.10</version>
-        </dependency>
-
-        <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.1.3</version>
+            <version>${ch.qos.logback.version}</version>
         </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>1.1.3</version>
+            <version>${ch.qos.logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>1.7.13</version>
+            <version>${org.slf4j.version}</version>
         </dependency>
     </dependencies>
 
