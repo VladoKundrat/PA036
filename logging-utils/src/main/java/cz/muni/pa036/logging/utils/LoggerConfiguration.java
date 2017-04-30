@@ -15,14 +15,19 @@ public class LoggerConfiguration extends ContextAwareBase implements LoggerConte
 
     private boolean started = false;
 
+    /**edit if you want*/
+    public static String logDir = "/home/kamil/";
+    public static String logFile = "pa036";
+
+
     @Override
     public void start() {
         if (started) return;
 
         /*String logDir = System.getProperty("user.home");
         String logFile = System.getProperty("log.file");*/
-        String logDir = "D:\\MUNI\\PA036\\PA036";
-        String logFile = "PA036";
+//        String logDir = "D:\\MUNI\\PA036\\PA036";
+//        String logFile = "PA036";
 
         logFile = (logFile != null && logFile.length() > 0) ? logFile : DEFAULT_LOG_FILE;
 
@@ -33,6 +38,11 @@ public class LoggerConfiguration extends ContextAwareBase implements LoggerConte
 
         started = true;
     }
+
+    public static String getLogFile() {
+        return logDir + logFile;
+    }
+
 
     @Override
     public void stop() {
