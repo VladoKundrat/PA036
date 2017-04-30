@@ -16,8 +16,8 @@ public class LoggerConfiguration extends ContextAwareBase implements LoggerConte
     private boolean started = false;
 
     /**edit if you want*/
-    public static String logDir = "/home/kamil/";
-    public static String logFile = "pa036";
+    public static String logDir = "/home/";
+    public static String logFile = "pa036_log";
 
 
     @Override
